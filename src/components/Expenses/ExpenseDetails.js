@@ -1,7 +1,7 @@
 import './ExpenseItem.css'
 import React from 'react'
 
-function ExpenseDetails(props) {
+const ExpenseDetails=(props)=> {
 
 
     return (
