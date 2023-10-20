@@ -11,7 +11,7 @@ const ExpenseDetails=(props)=> {
                 <div className='expense-item__price'>{props.amount}</div>
 
             </div>
-            <div>{props.loe}</div>
+            <div>{props.location}</div>
         </div>
     )
 }

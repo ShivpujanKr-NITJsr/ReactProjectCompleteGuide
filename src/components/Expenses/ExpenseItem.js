@@ -5,17 +5,28 @@ import ExpenseDetails from './ExpenseDetails';
 import './ExpenseItem.css';
 import React from 'react'
 
-const ExpenseItem=(props) =>{
-    
+const ExpenseItem = (props) => {
 
-
-    return (
-    <Card className='expense-item'>
+    let title=props.title;
+    const clickHandler = () => {
+        console.log('Clicked!!!!!!')
+        // alert('Clicked!!!!!!')
         
-        <ExpenseDate date={props.date}/>
+    }
+    const deleteHandler=()=>{
+        alert('delete impementation is incomplete')
+    }
+    return (
+        <Card className='expense-item'>
 
-        <ExpenseDetails amount={props.amount} title={props.title} loe={props.loe}/>
-    </Card>
+            <ExpenseDate date={props.date} />
+
+            <ExpenseDetails amount={props.amount} title={title} location={props.location} />
+
+            <button onClick={clickHandler}>change title</button>
+            <button onClick={deleteHandler}>delete</button>
+            
+        </Card>
     )
 }
 
