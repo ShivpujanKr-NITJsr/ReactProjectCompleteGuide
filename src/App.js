@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense'
 
@@ -9,22 +9,22 @@ const App=()=> {
       title: 'Toilet Paper',
       amount: 94.12,
       date: new Date(2020, 7, 14),
-      location: 'delhi',
+    
     },
-    { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12),location: 'dubai', },
+    { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12), },
     {
       id: 'e3',
       title: 'Car Insurance',
       amount: 294.67,
       date: new Date(2021, 2, 28),
-      location: 'banglore',
+
     },
     {
       id: 'e4',
       title: 'New Desk (Wooden)',
       amount: 450,
       date: new Date(2021, 5, 12),
-      location: 'shimla',
+     
     },
   ];
 
@@ -32,9 +32,12 @@ const App=()=> {
   const addExpenseHandler= expense=>{
     console.log('In App.js');
     // console.log(expense)
-    expenses.push(expense)
+    // expenses.unshift(expense)
     // console.log(expenses)
-    setExpense(expenses)
+
+    setExpense((prevExpenses)=>{
+      return [expense,...prevExpenses]
+    })
   }
   // return React.createElement(
   //   'div',
