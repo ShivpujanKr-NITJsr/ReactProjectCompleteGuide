@@ -35,7 +35,9 @@ const Expenses = (props) => {
       
       {expenseContent}
       
+      {filteredExpenses.length===1 && <p>Only single Expense here. Please add more...</p>}
 
+      
 
 
     </Card>
