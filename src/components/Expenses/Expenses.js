@@ -4,6 +4,8 @@ import './Expenses.css';
 import React,{ useState} from 'react'
 import ExpensesFilter from './ExpensesFilter';
 
+import ExpensesChart from './ExpensesChart'
+
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState('2020');
 
@@ -32,7 +34,7 @@ const Expenses = (props) => {
 
       <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
 
-      
+      <ExpensesChart expenses={filteredExpenses} />
       {expenseContent}
       
       {filteredExpenses.length===1 && <p>Only single Expense here. Please add more...</p>}
