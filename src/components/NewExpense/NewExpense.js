@@ -12,11 +12,13 @@ const NewExpense=(props)=>{
         }
         props.onAddExpense(expenseData)
     }
-   
+   const cancelForm=()=>{
+        props.cancelFormBtn();
+   }
     return (
         <div className='new-expense'>
 
-            <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+            <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} onCancelForm={cancelForm} />
         </div>
     )
 }

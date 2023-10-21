@@ -1,6 +1,7 @@
 import React, { useState} from 'react';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense'
+import AddExpenseButton from './components/NewExpense/AddExpenseButton'
 
 const App=()=> {
   const expenses = [
@@ -27,17 +28,19 @@ const App=()=> {
      
     },
   ];
-
+  // let flag=true;
   const [expenseValue,setExpense] = useState(expenses)
+  const [flag,setFlag] = useState(true)
   const addExpenseHandler= expense=>{
     console.log('In App.js');
     // console.log(expense)
     // expenses.unshift(expense)
     // console.log(expenses)
-
+    
     setExpense((prevExpenses)=>{
       return [expense,...prevExpenses]
     })
+    setFlag(true)
   }
   // return React.createElement(
   //   'div',
@@ -48,9 +51,20 @@ const App=()=> {
 
   // )
 
+  const cancelFormNow=()=>{
+    setFlag(true)
+  }
+  let show=<NewExpense onAddExpense={addExpenseHandler} cancelFormBtn={cancelFormNow}/>
+
+  const fillForm=()=>{
+    setFlag(false);
+  }
+  if(flag){
+    show=<AddExpenseButton fillForm={fillForm}/>
+  }
   return (
     <div>
-      <NewExpense onAddExpense={addExpenseHandler} />
+      {show}
       <Expenses items={expenseValue} />
     </div>
   );
